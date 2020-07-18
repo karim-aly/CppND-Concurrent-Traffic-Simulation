@@ -80,7 +80,7 @@ void TrafficLight::cycleThroughPhases()
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
 
     // initalize variables
-    long cycleDuration = rand() % 3 + 4;; // duration of a single simulation cycle in ms between (4~6 seconds)
+    long cycleDuration = rand() % 3 + 4;; // duration of a single simulation cycle in seconds between (4~6 seconds)
 
     // init stop watch
     std::chrono::time_point<std::chrono::system_clock> lastUpdate;
