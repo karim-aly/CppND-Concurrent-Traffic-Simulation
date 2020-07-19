@@ -68,6 +68,7 @@ void TrafficLight::cycleThroughPhases()
     long cycleDuration = rand() % 3 + 4;; // duration of a single simulation cycle in seconds between (4~6 seconds)
 
     // init stop watch
+    long timeSinceLastUpdate;
     std::chrono::time_point<std::chrono::system_clock> lastUpdate;
     lastUpdate = std::chrono::system_clock::now();
 
@@ -76,7 +77,7 @@ void TrafficLight::cycleThroughPhases()
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
         // compute time difference to stop watch
-        long timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - lastUpdate).count();
+        timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - lastUpdate).count();
         if (timeSinceLastUpdate >= cycleDuration) {
 
             // toggle the current phase of the traffic light between red and green
